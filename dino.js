@@ -1,4 +1,4 @@
-import {
+/*import {
   incrementCustomProperty,
   setCustomProperty,
   getCustomProperty,
@@ -69,9 +69,9 @@ function onJump(e) {
 
   yVelocity = JUMP_SPEED
   isJumping = true
-}
+}*/
 
-/*import {
+import {
   incrementCustomProperty,
   setCustomProperty,
   getCustomProperty,
@@ -161,4 +161,4 @@ function startJump() {
   if (isJumping) return
   yVelocity = JUMP_SPEED
   isJumping = true
-}*/
+}
