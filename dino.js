@@ -96,11 +96,11 @@ export function setupDino() {
   setCustomProperty(dinoElem, "--bottom", 0)
 
   // Remove existing listeners to avoid duplication
- // document.removeEventListener("keydown", onJump)
+  document.removeEventListener("keydown", onJump)
   document.removeEventListener("touchstart", onTouchJump)
 
   // Add key and touch event listeners
-//  document.addEventListener("keydown", onJump)
+  document.addEventListener("keydown", onJump)
   document.addEventListener("touchstart", onTouchJump)
 }
 
