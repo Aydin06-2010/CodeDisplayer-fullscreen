@@ -1,4 +1,4 @@
-/*import {
+import {
   incrementCustomProperty,
   setCustomProperty,
   getCustomProperty,
@@ -69,9 +69,9 @@ function onJump(e) {
 
   yVelocity = JUMP_SPEED
   isJumping = true
-}*/
+}
 
-import {
+/*import {
   incrementCustomProperty,
   setCustomProperty,
   getCustomProperty,
@@ -97,11 +97,11 @@ export function setupDino() {
 
   // Remove existing listeners to avoid duplication
   document.removeEventListener("keydown", onJump)
-//  document.removeEventListener("touchstart", onTouchJump)
+  document.removeEventListener("touchstart", onTouchJump)
 
   // Add key and touch event listeners
   document.addEventListener("keydown", onJump)
-//  document.addEventListener("touchstart", onTouchJump)
+  document.addEventListener("touchstart", onTouchJump)
 }
 
 export function updateDino(delta, speedScale) {
@@ -152,13 +152,13 @@ function onJump(e) {
 }
 
 // Touchstart event for mobile
-/*function onTouchJump(e) {
+function onTouchJump(e) {
   startJump()
-}*/
+}
 
 // Shared jump logic
 function startJump() {
   if (isJumping) return
   yVelocity = JUMP_SPEED
   isJumping = true
-}
+}*/
