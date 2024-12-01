@@ -1,4 +1,4 @@
-import { updateGround, setupGround } from "./ground.js"
+/*import { updateGround, setupGround } from "./ground.js"
 import { updateDino, setupDino, getDinoRect, setDinoLose } from "./dino.js"
 import { updateCactus, setupCactus, getCactusRects } from "./cactus.js"
 
@@ -90,8 +90,9 @@ function setPixelToWorldScale() {
 
   worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`
   worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`
-}
-/*import { updateGround, setupGround } from "./ground.js";
+}*/
+
+import { updateGround, setupGround } from "./ground.js";
 import { updateDino, setupDino, getDinoRect, setDinoLose } from "./dino.js";
 import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
 
@@ -105,12 +106,15 @@ const startScreenElem = document.querySelector("[data-start-screen]");
 
 setPixelToWorldScale();
 window.addEventListener("resize", setPixelToWorldScale);
-document.addEventListener("keydown", handleStart, { once: true });
-document.addEventListener("touchstart", handleStart, { once: true });
 
 let lastTime;
 let speedScale;
 let score;
+let gameRunning = false; // Flag to track if the game is already running
+
+// Add both touch and keyboard event listeners
+document.addEventListener("touchstart", handleStart);
+document.addEventListener("keydown", handleStart);
 
 function update(time) {
   if (lastTime == null) {
@@ -134,7 +138,7 @@ function update(time) {
 
 function checkLose() {
   const dinoRect = getDinoRect();
-  return getCactusRects().some(rect => isCollision(rect, dinoRect));
+  return getCactusRects().some((rect) => isCollision(rect, dinoRect));
 }
 
 function isCollision(rect1, rect2) {
@@ -155,27 +159,29 @@ function updateScore(delta) {
   scoreElem.textContent = Math.floor(score);
 }
 
-function handleStart() {
+function handleStart(e) {
+  if (gameRunning) return; // Prevent restarting the game if it's already running
+
+  // Only start the game on a valid input
+  if (e.type === "keydown" && e.key !== " ") return;
+
+  gameRunning = true; // Mark the game as running
   lastTime = null;
   speedScale = 1;
   score = 0;
+
   setupGround();
   setupDino();
   setupCactus();
   startScreenElem.classList.add("hide");
-
-  // Remove both event listeners after the game starts
-  document.removeEventListener("keydown", handleStart);
-  document.removeEventListener("touchstart", handleStart);
 
   window.requestAnimationFrame(update);
 }
 
 function handleLose() {
   setDinoLose();
+  gameRunning = false; // Allow restarting the game
   setTimeout(() => {
-    document.addEventListener("keydown", handleStart, { once: true });
-    document.addEventListener("touchstart", handleStart, { once: true });
     startScreenElem.classList.remove("hide");
   }, 100);
 }
@@ -190,4 +196,4 @@ function setPixelToWorldScale() {
 
   worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`;
   worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`;
-}*/
+}
