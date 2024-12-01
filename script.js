@@ -13,6 +13,7 @@ const startScreenElem = document.querySelector("[data-start-screen]")
 setPixelToWorldScale()
 window.addEventListener("resize", setPixelToWorldScale)
 document.addEventListener("touchstart", handleStart, { once: true })
+document.addEventListener("keystart", handleStart, { once: true })
 
 let lastTime
 let speedScale
