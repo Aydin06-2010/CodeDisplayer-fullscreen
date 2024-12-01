@@ -13,7 +13,7 @@ const startScreenElem = document.querySelector("[data-start-screen]")
 setPixelToWorldScale()
 window.addEventListener("resize", setPixelToWorldScale)
 document.addEventListener("touchstart", handleStart, { once: true })
-document.addEventListener("keystart", handleStart, { once: true })
+document.addEventListener("keydown", handleStart, { once: true })
 
 let lastTime
 let speedScale
@@ -75,6 +75,7 @@ function handleLose() {
   setDinoLose()
   setTimeout(() => {
     document.addEventListener("touchstart", handleStart, { once: true })
+    document.addEventListener("keydown", handleStart, { once: true })
     startScreenElem.classList.remove("hide")
   }, 100)
 }
