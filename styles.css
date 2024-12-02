@@ -101,7 +101,7 @@ body {
 
     /* Console content area */
     .console-content {
-      padding: 10px;
+    
       color: #0f0;
     }
 
@@ -110,3 +110,6 @@ body {
       white-space: pre-wrap;
       word-wrap: break-word;
     }
+#iframe{
+background-color:white; 
+}
