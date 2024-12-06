@@ -102,6 +102,10 @@ export function setupDino() {
   // Add key and touch event listeners
   document.addEventListener("keydown", onJump)
   document.addEventListener("touchstart", onTouchJump)
+  document.addEventListener("contextmenu", function(e) {
+    e.preventDefault(); 
+});
+  
 }
 
 export function updateDino(delta, speedScale) {
