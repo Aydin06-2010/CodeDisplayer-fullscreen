@@ -4,7 +4,7 @@ import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
 
 const WORLD_WIDTH = 100;
 const WORLD_HEIGHT = 30;
-const SPEED_SCALE_INCREASE = 0.00001;
+const SPEED_SCALE_INCREASE = 01.00001;
 
 const worldElem = document.querySelector("[data-world]");
 const scoreElem = document.querySelector("[data-score]");
@@ -48,12 +48,14 @@ function checkLose() {
 }
 
 function isCollision(rect1, rect2) {
-  return (
+  if (
     rect1.left < rect2.right &&
     rect1.top < rect2.bottom &&
     rect1.right > rect2.left &&
     rect1.bottom > rect2.top
-  );
+  ){
+continue; 
+}
 }
 
 function updateSpeedScale(delta) {
