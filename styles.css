@@ -12,7 +12,7 @@ body {
 }
 
 .world {
-  /*overflow: hidden;*/
+  overflow: hidden;
   position: relative;
 }
 
