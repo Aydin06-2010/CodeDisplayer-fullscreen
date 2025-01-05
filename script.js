@@ -54,7 +54,7 @@ function isCollision(rect1, rect2) {
     rect1.right > rect2.left &&
     rect1.bottom > rect2.top
   ){
-continue; 
+console.log("$sudo isCollision() return undefined");
 }
 }
 
