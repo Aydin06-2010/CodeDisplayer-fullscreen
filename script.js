@@ -15,7 +15,7 @@ window.addEventListener("resize", setPixelToWorldScale);
 
 let lastTime;
 let speedScale;
-let score = BigInt(0); // Use BigInt to store score
+let score;
 let gameRunning = false; // Flag to track if the game is already running
 
 // Add both touch and keyboard event listeners
@@ -53,8 +53,8 @@ function isCollision(rect1, rect2) {
     rect1.right > rect2.left &&
     rect1.bottom > rect2.top
   ){
-    console.log("$sudo isCollision() return undefined");
-  }
+console.log("$sudo isCollision() return undefined");
+}
 }
 
 function updateSpeedScale(delta) {
@@ -62,8 +62,8 @@ function updateSpeedScale(delta) {
 }
 
 function updateScore(delta) {
-  score += BigInt(Math.floor(delta * 0.01)); // Use BigInt to increment score
-  scoreElem.textContent = score.toString(); // Convert BigInt to string for display
+  score += delta * 0.01;
+  scoreElem.textContent = Math.floor(score);
 }
 
 function handleStart(e) {
@@ -75,7 +75,7 @@ function handleStart(e) {
   gameRunning = true; // Mark the game as running
   lastTime = null;
   speedScale = 1;
-  score = BigInt(9007199254740991); // Initial score as BigInt
+  score = 9007199254740000;//1000000;
 
   setupGround();
   setupDino();
