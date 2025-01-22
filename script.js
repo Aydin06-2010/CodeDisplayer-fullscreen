@@ -62,7 +62,7 @@ function updateSpeedScale(delta) {
 }
 
 function updateScore(delta) {
-  score += BigInt(delta * 0.01); // Use BigInt to increment score
+  score += BigInt(Math.floor(delta * 0.01)); // Use BigInt to increment score
   scoreElem.textContent = score.toString(); // Convert BigInt to string for display
 }
 
