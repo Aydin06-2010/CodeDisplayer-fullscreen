@@ -15,7 +15,7 @@ window.addEventListener("resize", setPixelToWorldScale);
 
 let lastTime;
 let speedScale;
-let score;
+let score = BigInt(0);
 let gameRunning = false; // Flag to track if the game is already running
 
 // Add both touch and keyboard event listeners
@@ -62,7 +62,7 @@ function updateSpeedScale(delta) {
 }
 
 function updateScore(delta) {
-  score += delta * 0.01;
+  score += BigInt(delta * 0.01);
   scoreElem.textContent = Math.floor(score);
 }
 
@@ -75,7 +75,7 @@ function handleStart(e) {
   gameRunning = true; // Mark the game as running
   lastTime = null;
   speedScale = 1;
-  score = 9007199254740991;//1000000;
+  score = BigInt(9007199254740991);//1000000;
 
   setupGround();
   setupDino();
