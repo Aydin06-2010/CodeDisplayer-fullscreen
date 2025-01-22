@@ -75,7 +75,7 @@ function handleStart(e) {
   gameRunning = true; // Mark the game as running
   lastTime = null;
   speedScale = 1;
-  score = 9007199254740000;//1000000;
+  score = 10000000;
 
   setupGround();
   setupDino();
